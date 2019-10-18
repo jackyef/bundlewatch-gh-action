@@ -35,11 +35,11 @@
   "bundlesize": [
     {
       "path": "./lib/main.js",
-      "maxSize": "5 kB"
+      "maxSize": "500 B"
     },
     {
       "path": "./lib/wait.js",
-      "maxSize": "1 kB"
+      "maxSize": "500 B"
     }
   ]
 }

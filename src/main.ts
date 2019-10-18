@@ -9,7 +9,7 @@ async function run() {
     child.execSync(`npm run ${buildScript}`);
     
     core.debug(`Running: bundlesize`);
-    child.execSync(`npm run bundlesize`);
+    child.execSync(`npx bundlesize`);
   } catch (error) {
     core.setFailed(error.message);
   }
