@@ -1,10 +1,11 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Bundlesize Github Action'
+description: 'Run bundlesize against your PR to keep those bundles in check! Update your package.json according to bundlesize config'
+author: 'Jacky Efendi'
 inputs:
-  myInput:              # change this
-    description: 'input description here'
-    default: 'default value if applicable'
+  build-script:
+    description: 'The build script to run before running bundlesize'
+    required: true
+
 runs:
-  using: 'node12'
+  using: 'node10'
   main: 'lib/main.js'

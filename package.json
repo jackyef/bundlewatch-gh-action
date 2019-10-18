@@ -1,26 +1,28 @@
 {
-  "name": "typescript-action",
+  "name": "bundlesize-gh-action",
   "version": "0.0.0",
   "private": true,
-  "description": "TypeScript template action",
+  "description": "bundlesize-gh-action",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
+    "dev": "tsc --watch",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/jackyef/bundlesize-gh-action.git"
   },
   "keywords": [
     "actions",
     "node",
-    "setup"
+    "bundlesize"
   ],
-  "author": "YourNameOrOrganization",
+  "author": "Jacky Efendi",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.0.0"
+    "@actions/core": "^1.0.0",
+    "bundlesize": "^0.18.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
@@ -29,5 +31,15 @@
     "jest-circus": "^24.7.1",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.1"
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./lib/main.js",
+      "maxSize": "5 kB"
+    },
+    {
+      "path": "./lib/wait.js",
+      "maxSize": "1 kB"
+    }
+  ]
 }

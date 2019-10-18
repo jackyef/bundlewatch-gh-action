@@ -1,16 +1,15 @@
 import * as core from '@actions/core';
-import {wait} from './wait'
+import * as child from 'child_process';
 
 async function run() {
   try {
-    const ms = core.getInput('milliseconds');
-    console.log(`Waiting ${ms} milliseconds ...`)
+    const buildScript = core.getInput('build-script');
 
-    core.debug((new Date()).toTimeString())
-    await wait(parseInt(ms, 10));
-    core.debug((new Date()).toTimeString())
-
-    core.setOutput('time', new Date().toTimeString());
+    core.debug(`Running: npm run ${buildScript}`);
+    child.execSync(`npm run ${buildScript}`);
+    
+    core.debug(`Running: bundlesize`);
+    child.execSync(`npm run bundlesize`);
   } catch (error) {
     core.setFailed(error.message);
   }
