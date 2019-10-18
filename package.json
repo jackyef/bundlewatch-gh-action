@@ -22,6 +22,8 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.0.0",
+    "@actions/exec": "^1.0.1",
+    "@actions/github": "^1.1.0",
     "bundlesize": "^0.18.0"
   },
   "devDependencies": {

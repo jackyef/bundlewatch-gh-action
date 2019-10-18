@@ -1,15 +1,50 @@
 import * as core from '@actions/core';
-import * as child from 'child_process';
+import * as exec from '@actions/exec';
+import * as github from '@actions/github';
 
 async function run() {
   try {
-    const buildScript = core.getInput('build-script');
+    let output = '';
+    let error = '';
 
-    core.debug(`Running: npm run ${buildScript}`);
-    child.execSync(`npm run ${buildScript}`);
+    const options: any = {};
+
+    options.listeners = {
+      stdout: (data: Buffer) => {
+        output += data.toString();
+      },
+      stderr: (data: Buffer) => {
+        error += data.toString();
+      }
+    };
+
+    const buildScript = core.getInput('build-script');
+    const bundlesizeGithubToken = core.getInput('bundlesize-github-token');
+
+    const githubPayload = github.context.payload;
+
+    if (!githubPayload) throw new Error('Failed when trying to get PR information');
     
-    core.debug(`Running: bundlesize`);
-    child.execSync(`npx bundlesize`);
+    const commitSHA = githubPayload.pull_request ? githubPayload.pull_request.head.sha : '';
+    const prTitle = githubPayload.pull_request ? githubPayload.pull_request.title : '';
+    const repoOwner = githubPayload.repository ? githubPayload.repository.owner.login : '';
+    const repoName = githubPayload.repository ? githubPayload.repository.name : '';
+
+    core.exportVariable('CI_REPO_OWNER', repoOwner);
+    core.exportVariable('CI_REPO_NAME', repoName);
+    core.exportVariable('CI_COMMIT_MESSAGE', prTitle);
+    core.exportVariable('CI_COMMIT_SHA', commitSHA);
+    core.exportVariable('CI', 'true');
+    core.exportVariable('BUNDLESIZE_GITHUB_TOKEN', bundlesizeGithubToken);
+
+    console.log(`Running: npm run ${buildScript}`);
+    await exec.exec(`npm run ${buildScript}`, undefined);
+
+    console.log(`Running: bundlesize`);
+    await exec.exec(`npx bundlesize`, undefined, options);
+    if (output) console.info(output);
+    if (error) throw new Error(error);
+
   } catch (error) {
     core.setFailed(error.message);
   }

@@ -18,3 +18,4 @@ jobs:
     - uses: ./
       with: 
         build-script: build
+        bundlesize-github-token: ${{ secrets.BUNDLESIZE_GITHUB_TOKEN }}
