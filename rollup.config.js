@@ -22,9 +22,8 @@ export default {
       extensions: ['.js'],
       // a list of aliases, default = {}
       alias: {
-        // force use dist-node so we don't face errors
-        '@octokit/request': path.resolve(nodeModulesDir, './@octokit/request/dist-node/index.js'),
-        'universal-user-agent': path.resolve(nodeModulesDir, './universal-user-agent/dist-node/index.js'),
+        // force use modern tslib
+        'tslib': path.resolve(nodeModulesDir, './tslib/tslib.es6.js'),
       },
       // index file name without extension, default = 'index'
       indexFile: 'index',
@@ -35,7 +34,9 @@ export default {
     // Allow node_modules resolution, so you can use 'external' to control
     // which external modules to include in the bundle
     // https://github.com/rollup/rollup-plugin-node-resolve#usage
-    resolve(),
+    resolve({
+      mainFields: ['main', 'module'],
+    }),
 
     // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
     commonjs(),
