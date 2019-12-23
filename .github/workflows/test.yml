@@ -1,20 +1,21 @@
-name: "Test typescript-action"
+name: "bundlewatch GH Action"
+
 on:
-  pull_request:
-  push:
-    branches:
-      - master
-      - 'releases/*'
+  pull_request: 
+    types: [synchronize, opened]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-
+    # install based on package-lock.json file
     - run: npm ci
+    # build the /lib so we can test it on our own repo
     - run: npm run build
-    - run: npm test
+
+    # run our own action
     - uses: ./
       with: 
-        milliseconds: 1000
+        build-script: build
+        bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
