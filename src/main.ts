@@ -26,15 +26,15 @@ async function run() {
     if (!githubPayload) throw new Error('Failed when trying to get PR information');
     
     const commitSHA = githubPayload.pull_request ? githubPayload.pull_request.head.sha : '';
+    const branchName = githubPayload.pull_request ? githubPayload.pull_request.head.ref : '';
     const prTitle = githubPayload.pull_request ? githubPayload.pull_request.title : '';
     const repoOwner = githubPayload.repository ? githubPayload.repository.owner.login : '';
     const repoName = githubPayload.repository ? githubPayload.repository.name : '';
 
     core.exportVariable('CI_REPO_OWNER', repoOwner);
     core.exportVariable('CI_REPO_NAME', repoName);
-    core.exportVariable('CI_COMMIT_MESSAGE', prTitle);
     core.exportVariable('CI_COMMIT_SHA', commitSHA);
-    core.exportVariable('CI', 'true');
+    core.exportVariable('CI_BRANCH', branchName);
     core.exportVariable('BUNDLEWATCH_GITHUB_TOKEN', bundlesizeGithubToken);
 
     console.log(`Running: npm run ${buildScript}`);
