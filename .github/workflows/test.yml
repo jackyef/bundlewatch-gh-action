@@ -10,12 +10,12 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     # install based on package-lock.json file
-    - run: npm ci
+    # - run: npm ci
     # build the /lib so we can test it on our own repo
-    - run: npm run build
+    # - run: npm run build
 
     # run our own action
     - uses: ./
       with: 
-        build-script: build
+        build-script: test-build
         bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
