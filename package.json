@@ -24,7 +24,8 @@
     "@actions/core": "^1.0.0",
     "@actions/exec": "^1.0.1",
     "@actions/github": "^1.1.0",
-    "bundlewatch": "^0.2.5"
+    "bundlewatch": "^0.2.5",
+    "universal-user-agent": "^4.0.0"
   },
   "devDependencies": {
     "@babel/types": "^7.7.4",
@@ -34,6 +35,7 @@
     "jest-circus": "^24.7.1",
     "rollup": "^1.27.14",
     "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-import-resolver": "^1.0.4",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript2": "^0.25.3",
