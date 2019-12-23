@@ -1,4 +1,4 @@
-name: "Test typescript-action"
+name: "bundlewatch GH Action"
 
 on:
   pull_request: 

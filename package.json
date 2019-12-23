@@ -38,7 +38,7 @@
     "files": [
       {
         "path": "./lib/main.js",
-        "maxSize": "500 B"
+        "maxSize": "2 KB"
       },
       {
         "path": "./lib/wait.js",
