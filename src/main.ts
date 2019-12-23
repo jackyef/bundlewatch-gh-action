@@ -2,6 +2,12 @@ import * as core from '@actions/core';
 import * as exec from '@actions/exec';
 import * as github from '@actions/github';
 
+const getBranchNameFromRef = ref => {
+  const splitted = ref.split('/');
+
+  return splitted[splitted.length - 1];
+}
+
 async function run() {
   try {
     let output = '';
@@ -23,11 +29,10 @@ async function run() {
 
     const githubPayload = github.context.payload;
 
-    if (!githubPayload) throw new Error('Failed when trying to get PR information');
+    if (!githubPayload) throw new Error('Failed when trying to get GitHub Payload');
     
-    const commitSHA = githubPayload.pull_request ? githubPayload.pull_request.head.sha : '';
-    const branchName = githubPayload.pull_request ? githubPayload.pull_request.head.ref : '';
-    const prTitle = githubPayload.pull_request ? githubPayload.pull_request.title : '';
+    const commitSHA = githubPayload.pull_request ? githubPayload.pull_request.head.sha : githubPayload.after;
+    const branchName = githubPayload.pull_request ? githubPayload.pull_request.head.ref : getBranchNameFromRef(githubPayload.ref);
     const repoOwner = githubPayload.repository ? githubPayload.repository.owner.login : '';
     const repoName = githubPayload.repository ? githubPayload.repository.name : '';
 
