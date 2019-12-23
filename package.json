@@ -24,7 +24,7 @@
     "@actions/core": "^1.0.0",
     "@actions/exec": "^1.0.1",
     "@actions/github": "^1.1.0",
-    "bundlesize": "^0.18.0"
+    "bundlewatch": "^0.2.5"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
@@ -34,14 +34,16 @@
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.1"
   },
-  "bundlesize": [
-    {
-      "path": "./lib/main.js",
-      "maxSize": "500 B"
-    },
-    {
-      "path": "./lib/wait.js",
-      "maxSize": "500 B"
-    }
-  ]
+  "bundlewatch": {
+    "files": [
+      {
+        "path": "./lib/main.js",
+        "maxSize": "500 B"
+      },
+      {
+        "path": "./lib/wait.js",
+        "maxSize": "500 B"
+      }
+    ]
+  }
 }

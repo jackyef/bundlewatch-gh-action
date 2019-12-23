@@ -19,7 +19,7 @@ async function run() {
     };
 
     const buildScript = core.getInput('build-script');
-    const bundlesizeGithubToken = core.getInput('bundlesize-github-token');
+    const bundlesizeGithubToken = core.getInput('bundlewatch-github-token');
 
     const githubPayload = github.context.payload;
 
@@ -35,13 +35,13 @@ async function run() {
     core.exportVariable('CI_COMMIT_MESSAGE', prTitle);
     core.exportVariable('CI_COMMIT_SHA', commitSHA);
     core.exportVariable('CI', 'true');
-    core.exportVariable('BUNDLESIZE_GITHUB_TOKEN', bundlesizeGithubToken);
+    core.exportVariable('BUNDLEWATCH_GITHUB_TOKEN', bundlesizeGithubToken);
 
     console.log(`Running: npm run ${buildScript}`);
     await exec.exec(`npm run ${buildScript}`, undefined);
 
-    console.log(`Running: bundlesize`);
-    await exec.exec(`npx bundlesize`, undefined, options);
+    console.log(`Running: bundlewatch`);
+    await exec.exec(`npx bundlewatch`, undefined, options);
     if (output) console.info(output);
     if (error) throw new Error(error);
 
