@@ -10,9 +10,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     # install based on package-lock.json file
-    - run: npm ci
+    # - run: npm ci
     # build the /lib so we can test it on our own repo
-    - run: npm run build
+    # - run: npm run build
 
     # run our own action
     - uses: ./
