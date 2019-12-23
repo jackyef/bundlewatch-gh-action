@@ -1,9 +1,9 @@
-name: 'Bundlesize Github Action'
-description: 'Run bundlesize against your PR to keep those bundles in check! Update your package.json according to bundlesize config'
+name: 'Bundlewatch Github Action'
+description: 'Run bundlewatch against your PR to keep those bundles in check! Update your package.json according to bundlewatch config'
 author: 'Jacky Efendi'
 inputs:
   build-script:
-    description: 'The build script to run before running bundlesize'
+    description: 'The build script for your project. Will be run before running bundlewatch'
     required: true
 
 runs:
