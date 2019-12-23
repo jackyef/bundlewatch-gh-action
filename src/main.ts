@@ -10,20 +10,6 @@ const getBranchNameFromRef = ref => {
 
 async function run() {
   try {
-    let output = '';
-    let error = '';
-
-    const options: any = {};
-
-    options.listeners = {
-      stdout: (data: Buffer) => {
-        output += data.toString();
-      },
-      stderr: (data: Buffer) => {
-        error += data.toString();
-      }
-    };
-
     const buildScript = core.getInput('build-script');
     const bundlesizeGithubToken = core.getInput('bundlewatch-github-token');
 
@@ -46,10 +32,7 @@ async function run() {
     await exec.exec(`${buildScript}`, undefined);
 
     console.log(`Running: bundlewatch`);
-    await exec.exec(`npx bundlewatch`, undefined, options);
-    if (output) console.info(output);
-    if (error) throw new Error(error);
-
+    await exec.exec(`npx bundlewatch`, undefined);
   } catch (error) {
     core.setFailed(error.message);
   }
