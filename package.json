@@ -5,7 +5,7 @@
   "description": "bundlesize-gh-action",
   "main": "lib/main.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && rollup -c ./rollup.config.js",
     "dev": "tsc --watch",
     "test": "jest"
   },
@@ -27,12 +27,18 @@
     "bundlewatch": "^0.2.5"
   },
   "devDependencies": {
+    "@babel/types": "^7.7.4",
     "@types/jest": "^24.0.13",
     "@types/node": "^12.0.4",
     "jest": "^24.8.0",
     "jest-circus": "^24.7.1",
+    "rollup": "^1.27.14",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.25.3",
     "ts-jest": "^24.0.2",
-    "typescript": "^3.5.1"
+    "typescript": "^3.7.4"
   },
   "bundlewatch": {
     "files": [
