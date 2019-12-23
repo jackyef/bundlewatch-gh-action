@@ -17,5 +17,5 @@ jobs:
     # run our own action
     - uses: ./
       with: 
-        build-script: build
+        build-script: test-build
         bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}

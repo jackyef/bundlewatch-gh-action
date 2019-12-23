@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsc && rollup -c ./rollup.config.js",
     "dev": "tsc --watch",
-    "test": "jest"
+    "test": "jest",
+    "test-build": "echo 'no need to build for testing in this repo'"
   },
   "repository": {
     "type": "git",
