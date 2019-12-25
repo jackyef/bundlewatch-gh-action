@@ -2,10 +2,8 @@ import * as core from '@actions/core';
 import * as exec from '@actions/exec';
 import * as github from '@actions/github';
 
-const getBranchNameFromRef = ref => {
-  const splitted = ref.split('/');
-
-  return splitted[splitted.length - 1];
+const getBranchNameFromRef = (ref: string) => {
+  return ref.replace(/^refs\/heads\//, '');
 }
 
 async function run() {
