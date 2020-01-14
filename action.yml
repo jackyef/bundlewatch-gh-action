@@ -4,7 +4,7 @@ author: 'Jacky Efendi'
 inputs:
   build-script:
     description: 'Optional — The build script for your project. Will be run before running bundlewatch'
-    required: true
+    required: false
 
 runs:
   using: 'node12'
