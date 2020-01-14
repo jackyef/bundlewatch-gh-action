@@ -3,8 +3,8 @@ description: 'Run bundlewatch against your PR to keep those bundles in check! Up
 author: 'Jacky Efendi'
 inputs:
   build-script:
-    description: 'The build script for your project. Will be run before running bundlewatch'
-    required: true
+    description: 'Optional — The build script for your project. Will be run before running bundlewatch'
+    required: false
 
 runs:
   using: 'node12'

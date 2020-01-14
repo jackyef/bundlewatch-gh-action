@@ -26,8 +26,10 @@ async function run() {
     core.exportVariable('CI_BRANCH', branchName);
     core.exportVariable('BUNDLEWATCH_GITHUB_TOKEN', bundlesizeGithubToken);
 
-    console.log(`Running build script: "${buildScript}"`);
-    await exec.exec(`${buildScript}`, undefined);
+    if(buildScript) {
+      console.log(`Running build script: "${buildScript}"`);
+      await exec.exec(`${buildScript}`, undefined);
+    }
 
     console.log(`Running: bundlewatch`);
     await exec.exec(`npx bundlewatch`, undefined);
