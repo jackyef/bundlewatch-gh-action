@@ -1,6 +1,6 @@
 {
   "name": "bundlesize-gh-action",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "private": true,
   "description": "bundlesize-gh-action",
   "main": "lib/main.js",
@@ -47,11 +47,7 @@
     "files": [
       {
         "path": "./lib/main.js",
-        "maxSize": "2 KB"
-      },
-      {
-        "path": "./lib/wait.js",
-        "maxSize": "500 B"
+        "maxSize": "100 KB"
       }
     ]
   }

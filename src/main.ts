@@ -4,7 +4,7 @@ import * as github from '@actions/github';
 
 const getBranchNameFromRef = (ref: string) => {
   return ref.replace(/^refs\/heads\//, '');
-}
+};
 
 async function run() {
   try {
@@ -14,9 +14,11 @@ async function run() {
     const githubPayload = github.context.payload;
 
     if (!githubPayload) throw new Error('Failed when trying to get GitHub Payload');
-    
+
     const commitSHA = githubPayload.pull_request ? githubPayload.pull_request.head.sha : githubPayload.after;
-    const branchName = githubPayload.pull_request ? githubPayload.pull_request.head.ref : getBranchNameFromRef(githubPayload.ref);
+    const branchName = githubPayload.pull_request
+      ? githubPayload.pull_request.head.ref
+      : getBranchNameFromRef(githubPayload.ref);
     const repoOwner = githubPayload.repository ? githubPayload.repository.owner.login : '';
     const repoName = githubPayload.repository ? githubPayload.repository.name : '';
 
@@ -26,7 +28,7 @@ async function run() {
     core.exportVariable('CI_BRANCH', branchName);
     core.exportVariable('BUNDLEWATCH_GITHUB_TOKEN', bundlesizeGithubToken);
 
-    if(buildScript) {
+    if (buildScript) {
       console.log(`Running build script: "${buildScript}"`);
       await exec.exec(`${buildScript}`, undefined);
     }
