@@ -48,10 +48,6 @@
       {
         "path": "./lib/main.js",
         "maxSize": "100 KB"
-      },
-      {
-        "path": "./lib/wait.js",
-        "maxSize": "500 B"
       }
     ]
   }
