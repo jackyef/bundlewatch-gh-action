@@ -2,7 +2,7 @@ import * as core from '@actions/core';
 import * as exec from '@actions/exec';
 import * as github from '@actions/github';
 
-const getBranchNameFromRef = (ref: string) => {
+export const getBranchNameFromRef = (ref: string) => {
   return ref.replace(/^refs\/heads\//, '');
 };
 
@@ -41,3 +41,5 @@ async function run() {
 }
 
 run();
+
+export default run;

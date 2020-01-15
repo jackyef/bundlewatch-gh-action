@@ -30,9 +30,9 @@
   },
   "devDependencies": {
     "@babel/types": "^7.7.4",
-    "@types/jest": "^24.0.13",
-    "@types/node": "^12.0.4",
-    "jest": "^24.8.0",
+    "@types/jest": "^24.0.25",
+    "@types/node": "^12.12.24",
+    "jest": "^24.9.0",
     "jest-circus": "^24.7.1",
     "rollup": "^1.27.14",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -40,7 +40,7 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript2": "^0.25.3",
-    "ts-jest": "^24.0.2",
+    "ts-jest": "^24.3.0",
     "typescript": "^3.7.4"
   },
   "bundlewatch": {
