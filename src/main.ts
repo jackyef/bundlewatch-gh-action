@@ -9,7 +9,7 @@ export const getBranchNameFromRef = (ref: string) => {
 async function run() {
   try {
     const buildScript = core.getInput('build-script');
-    const bundlesizeGithubToken = core.getInput('bundlewatch-github-token');
+    const bundlewatchGithubToken = core.getInput('bundlewatch-github-token');
 
     const githubPayload = github.context.payload;
 
@@ -26,7 +26,7 @@ async function run() {
     core.exportVariable('CI_REPO_NAME', repoName);
     core.exportVariable('CI_COMMIT_SHA', commitSHA);
     core.exportVariable('CI_BRANCH', branchName);
-    core.exportVariable('BUNDLEWATCH_GITHUB_TOKEN', bundlesizeGithubToken);
+    core.exportVariable('BUNDLEWATCH_GITHUB_TOKEN', bundlewatchGithubToken);
 
     if (buildScript) {
       console.log(`Running build script: "${buildScript}"`);

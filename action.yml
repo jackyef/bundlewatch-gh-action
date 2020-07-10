@@ -2,6 +2,9 @@ name: 'Bundlewatch Github Action'
 description: 'Run bundlewatch against your PR to keep those bundles in check! Update your package.json according to bundlewatch config'
 author: 'Jacky Efendi'
 inputs:
+  bundlewatch-github-token:
+    description: 'A token to authenticate with the Bundlewatch service. Set this as a secret in your GitHub repository'
+    required: true
   build-script:
     description: 'Optional — The build script for your project. Will be run before running bundlewatch'
     required: false
