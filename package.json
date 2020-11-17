@@ -39,7 +39,6 @@
     "jest": "^24.9.0",
     "jest-circus": "^24.7.1",
     "rollup": "^2.33.2",
-    "rollup-plugin-import-resolver": "^1.0.4",
     "ts-jest": "^24.3.0",
     "tslib": "^2.0.3",
     "typescript": "^3.7.4"
@@ -48,7 +47,7 @@
     "files": [
       {
         "path": "./lib/main.js",
-        "maxSize": "100 KB"
+        "maxSize": "105 KB"
       }
     ]
   }
