@@ -1,7 +1,7 @@
-import resolve from 'rollup-plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript2';
-import commonjs from 'rollup-plugin-commonjs';
-import json from 'rollup-plugin-json';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript'; // we use 3.1.1 because of https://github.com/rollup/plugins/issues/287#issuecomment-645100737
+import json from '@rollup/plugin-json';
 import importResolver from 'rollup-plugin-import-resolver';
 import path from 'path';
 
@@ -36,6 +36,7 @@ export default {
     // https://github.com/rollup/rollup-plugin-node-resolve#usage
     resolve({
       mainFields: ['main', 'module'],
+      preferBuiltins: true, // prefer native node modules
     }),
 
     // Allow bundling cjs modules (unlike webpack, rollup doesn't understand cjs)
@@ -43,8 +44,8 @@ export default {
 
     typescript({
       typescript: require('typescript'),
-      objectHashIgnoreUnknownHack: true,
-      useTsconfigDeclarationDir: true,
+      // objectHashIgnoreUnknownHack: true,
+      // useTsconfigDeclarationDir: true,
     }),
   ],
 };
