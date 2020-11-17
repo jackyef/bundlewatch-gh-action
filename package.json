@@ -30,24 +30,24 @@
   },
   "devDependencies": {
     "@babel/types": "^7.7.4",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@rollup/plugin-typescript": "^3.1.1",
     "@types/jest": "^24.0.25",
     "@types/node": "^12.12.24",
     "jest": "^24.9.0",
     "jest-circus": "^24.7.1",
-    "rollup": "^1.27.14",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-import-resolver": "^1.0.4",
-    "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-typescript2": "^0.25.3",
+    "rollup": "^2.33.2",
     "ts-jest": "^24.3.0",
+    "tslib": "^2.0.3",
     "typescript": "^3.7.4"
   },
   "bundlewatch": {
     "files": [
       {
         "path": "./lib/main.js",
-        "maxSize": "100 KB"
+        "maxSize": "105 KB"
       }
     ]
   }
