@@ -23,7 +23,7 @@ export default {
       // a list of aliases, default = {}
       alias: {
         // force use modern tslib
-        'tslib': path.resolve(nodeModulesDir, './tslib/tslib.es6.js'),
+        'tslib': 'tslib.es6.js',
       },
       // index file name without extension, default = 'index'
       indexFile: 'index',
