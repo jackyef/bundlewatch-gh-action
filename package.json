@@ -22,7 +22,7 @@
   "author": "Jacky Efendi",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.0.0",
+    "@actions/core": "^1.2.6",
     "@actions/exec": "^1.0.1",
     "@actions/github": "^1.1.0",
     "bundlewatch": "^0.2.5",
