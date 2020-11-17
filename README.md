@@ -51,6 +51,8 @@ This GitHub action allows you to easily run [bundlewatch](https://github.com/bun
     You would probably want to change the `build-script` to whatever script you want to run to produce your output bundle.
 
     _Note: `build-script` is actually optional, just in case your workflow does not need build step and you are measuring the size of already committed files_
+    
+    _Note 2: It is recommended to use a specific version of this action instead of `@master`. For example: `- uses: jackyef/bundlewatch-gh-action@0.1.0`. This is because some commits that aren't ready to be released yet might make it into `master` branch._
 
 5. For adding statuses on pull requests, you can add another workflow for pull requests `synchronize` and `opened` events as following:
     ```yml
