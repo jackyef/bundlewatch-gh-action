@@ -1,16 +1,16 @@
-name: "Bundlewatch Github Action - on Tracked Branches Push"
+name: "Bundlewatch GitHub Action - on Tracked Branches Push"
 
 on:
-  push: 
+  push:
     branches:
-    - master
-    - testing-branch-do-not-delete
+      - master
+      - testing-branch-do-not-delete
 
 jobs:
   bundlewatch:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: ./
-      with:
-        bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}

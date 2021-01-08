@@ -1,17 +1,17 @@
 name: "bundlewatch GH Action"
 
 on:
-  pull_request: 
+  pull_request:
     types: [synchronize, opened]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
-    # run our own action on PR as a way to test this library
-    - uses: ./
-      with: 
-        build-script: npm run test-build
-        bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
+      # run our own action on PR as a way to test this library
+      - uses: ./
+        with:
+          build-script: npm run test-build
+          bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
