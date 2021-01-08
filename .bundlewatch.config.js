@@ -5,4 +5,7 @@ module.exports = {
       maxSize: '200 KB',
     },
   ],
+  ci: {
+    trackBranches: ['master', 'testing-branch-do-not-delete'],
+  },
 };

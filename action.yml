@@ -9,7 +9,10 @@ inputs:
     description: 'Optional — The build script for your project. Will be run before running bundlewatch'
     required: false
   bundlewatch-config:
-    description: 'Optional — The path to your external bundlewatch.config.js file'
+    description: 'Optional — The path to your external bundlewatch.config.js file. If not provided, it will assume the configuration exist in your package.json file'
+    required: false
+  branch-base:
+    description: 'Optional — The name of the branch to compare against. Usually it is your master/main branch. Defaults to GitHub PR target branch'
     required: false
 
 runs:
