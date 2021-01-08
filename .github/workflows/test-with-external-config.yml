@@ -5,16 +5,12 @@ on:
     types: [synchronize, opened]
 
 jobs:
-  test:
+  test-with-external-config:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    # install based on package-lock.json file
-    # - run: npm ci
-    # build the /lib so we can test it on our own repo
-    # - run: npm run build
 
-    # run our own action
+    # run our own action on PR as a way to test this library
     - uses: ./
       with: 
         build-script: npm run test-build
