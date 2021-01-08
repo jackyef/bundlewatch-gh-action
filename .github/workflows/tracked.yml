@@ -4,6 +4,7 @@ on:
   push: 
     branches:
     - master
+    - testing-branch-do-not-delete
 
 jobs:
   bundlewatch:
