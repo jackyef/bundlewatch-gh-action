@@ -8,6 +8,9 @@ inputs:
   build-script:
     description: 'Optional — The build script for your project. Will be run before running bundlewatch'
     required: false
+  bundlewatch-config:
+    description: 'Optional — The path to your external bundlewatch.config.js file'
+    required: false
 
 runs:
   using: 'node12'

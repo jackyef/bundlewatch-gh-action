@@ -9,6 +9,7 @@ export const getBranchNameFromRef = (ref: string) => {
 async function run() {
   try {
     const buildScript = core.getInput('build-script');
+    const configFile = core.getInput('bundlewatch-config');
     const bundlewatchGithubToken = core.getInput('bundlewatch-github-token');
 
     const githubPayload = github.context.payload;
@@ -33,8 +34,13 @@ async function run() {
       await exec.exec(`${buildScript}`, undefined);
     }
 
-    console.log(`Running: bundlewatch`);
-    await exec.exec(`npx bundlewatch`, undefined);
+    if (configFile) {
+      console.log(`Running: bundlewatch --config ${configFile}`);
+      await exec.exec(`npx bundlewatch --config ${configFile}`, undefined);
+    } else {
+      console.log(`Running: bundlewatch`);
+      await exec.exec(`npx bundlewatch`, undefined);
+    }
   } catch (error) {
     core.setFailed(error.message);
   }

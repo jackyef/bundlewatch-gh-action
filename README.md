@@ -75,6 +75,27 @@ This GitHub action allows you to easily run [bundlewatch](https://github.com/bun
             bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
     ```
 
+6. If you are using an external config file, you can pass the file path to `bundlewatch-config` parameter
+  ```yml
+    name: "Bundlewatch Github Action"
+
+    on:
+      pull_request: 
+        types: [synchronize, opened]
+
+    jobs:
+      bundlewatch:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v1
+        - uses: Borales/actions-yarn@v2.1.0
+        - run: yarn install
+        - uses: jackyef/bundlewatch-gh-action@master
+          with:
+            build-script: yarn build:minify
+            bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
+            bundlewatch-config: .bundlewatch.config.js
+    ```
 ## Feedback
 Feel free to open issues for feature requests. If you want to contribute, feel free to open a pull request as well!
 
