@@ -2,6 +2,7 @@
 
 This GitHub action allows you to easily run [bundlewatch](https://github.com/bundlewatch/bundlewatch) in your repository.
 
+For full configurations please look at the [`action.yml`](./action.yml) file.
 ## How to use:
 1. Add bundlewatch configuration in your package.json. Refer to this [doc](https://bundlewatch.io/#/getting-started/using-a-config-file) for more complete explanation. 
     ```
