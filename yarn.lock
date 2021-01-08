@@ -3293,11 +3293,6 @@ rimraf@^2.5.4, rimraf@^2.6.3:
   dependencies:
     glob "^7.1.3"
 
-rollup-plugin-import-resolver@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-import-resolver/-/rollup-plugin-import-resolver-1.0.4.tgz#1bdd7edb0901620d1a27f2b0b6a7e481e8166bf9"
-  integrity sha512-17bO+GVRZ6q4k6K1ox1c77BdVooDNuocaS/pdonmJmekMEEyAPyGqiN4d47/yjrrabQU7TC6ulOS/b+njcN3Uw==
-
 rollup@^2.33.2:
   version "2.33.2"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.33.2.tgz#c4c76cd405a7605e6ebe90976398c46d4c2ea166"
