@@ -49,6 +49,9 @@
         "path": "./lib/main.js",
         "maxSize": "105 KB"
       }
-    ]
+    ],
+    "ci": {
+      "trackBranches": ["master", "testing-branch-do-not-delete"]
+    }
   }
 }
