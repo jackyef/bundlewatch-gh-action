@@ -1,4 +1,4 @@
-name: 'Bundlewatch Github Action'
+name: 'Bundlewatch GitHub Action'
 description: 'Run bundlewatch against your PR to keep those bundles in check! Update your package.json according to bundlewatch config'
 author: 'Jacky Efendi'
 inputs:
@@ -16,5 +16,5 @@ inputs:
     required: false
 
 runs:
-  using: 'node12'
+  using: 'node14'
   main: 'lib/main.js'
