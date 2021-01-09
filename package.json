@@ -25,7 +25,7 @@
     "@actions/core": "^1.2.6",
     "@actions/exec": "^1.0.4",
     "@actions/github": "^2.1.1",
-    "bundlewatch": "^0.2.5",
+    "bundlewatch": "^0.3.1",
     "universal-user-agent": "^4.0.0"
   },
   "devDependencies": {
