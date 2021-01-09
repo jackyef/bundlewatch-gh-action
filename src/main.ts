@@ -15,7 +15,9 @@ async function run() {
 
     const githubPayload = github.context.payload;
 
-    if (!githubPayload) throw new Error('Failed when trying to get GitHub Payload');
+    if (!githubPayload) {
+      throw new Error('Failed when trying to get GitHub Payload');
+    }
 
     const commitSHA = githubPayload.pull_request ? githubPayload.pull_request.head.sha : githubPayload.after;
     const currentBranchName = githubPayload.pull_request
@@ -29,7 +31,7 @@ async function run() {
     core.exportVariable('CI_COMMIT_SHA', commitSHA);
     core.exportVariable('CI_BRANCH', currentBranchName);
     core.exportVariable('BUNDLEWATCH_GITHUB_TOKEN', bundlewatchGithubToken);
-    
+
     if (branchBase) {
       core.exportVariable('CI_BRANCH_BASE', branchBase);
     }
@@ -43,14 +45,14 @@ async function run() {
       console.log(`Running: bundlewatch --config ${configFile}`);
       await exec.exec(`npx bundlewatch --config ${configFile}`, undefined);
     } else {
-      console.log(`Running: bundlewatch`);
-      await exec.exec(`npx bundlewatch`, undefined);
+      console.log('Running: bundlewatch');
+      await exec.exec('npx bundlewatch', undefined);
     }
-  } catch (error) {
+  } catch (error: any) {
     core.setFailed(error.message);
   }
 }
 
-run();
+void run();
 
 export default run;
