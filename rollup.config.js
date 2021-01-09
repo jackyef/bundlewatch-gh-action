@@ -2,9 +2,6 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript'; // we use 3.1.1 because of https://github.com/rollup/plugins/issues/287#issuecomment-645100737
 import json from '@rollup/plugin-json';
-import path from 'path';
-
-const nodeModulesDir = path.resolve(__dirname, 'node_modules');
 
 export default {
   input: 'src/main.ts',
