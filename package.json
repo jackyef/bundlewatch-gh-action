@@ -25,7 +25,9 @@
     "@actions/core": "^1.2.6",
     "@actions/exec": "^1.0.4",
     "@actions/github": "^2.1.1",
+    "brotli-size": "^4.0.0",
     "bundlewatch": "^0.3.1",
+    "chalk": "^4.1.0",
     "universal-user-agent": "^4.0.0"
   },
   "devDependencies": {
@@ -38,6 +40,7 @@
     "@types/node": "^12.12.24",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "@typescript-eslint/parser": "^4.12.0",
+    "builtin-modules": "^3.2.0",
     "eslint-config-xo-typescript": "^0.37.0",
     "jest": "^24.9.0",
     "jest-circus": "^24.7.1",
@@ -51,7 +54,7 @@
     "files": [
       {
         "path": "./lib/main.js",
-        "maxSize": "105 KB"
+        "maxSize": "200 KB"
       }
     ],
     "ci": {
