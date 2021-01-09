@@ -2,7 +2,7 @@ module.exports = {
   files: [
     {
       path: './lib/main.js',
-      maxSize: '200 KB',
+      maxSize: '300 KB',
     },
   ],
   ci: {
