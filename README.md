@@ -47,7 +47,7 @@ For the full configuration please have a look at the [`action.yml`](./action.yml
       bundlewatch:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v1
+          - uses: actions/checkout@v2
           - uses: Borales/actions-yarn@v2.1.0
           - run: yarn install
           - uses: jackyef/bundlewatch-gh-action@master
@@ -75,7 +75,7 @@ For the full configuration please have a look at the [`action.yml`](./action.yml
       bundlewatch:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v1
+          - uses: actions/checkout@v2
           - uses: Borales/actions-yarn@v2.1.0
           - run: yarn install
           - uses: jackyef/bundlewatch-gh-action@master
@@ -97,7 +97,7 @@ For the full configuration please have a look at the [`action.yml`](./action.yml
       bundlewatch:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v1
+          - uses: actions/checkout@v2
           - uses: Borales/actions-yarn@v2.1.0
           - run: yarn install
           - uses: jackyef/bundlewatch-gh-action@master
