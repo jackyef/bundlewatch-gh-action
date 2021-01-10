@@ -12,7 +12,7 @@ inputs:
     description: 'Optional — The path to your external bundlewatch.config.js file. If not provided, it will assume the configuration exist in your package.json file'
     required: false
   branch-base:
-    description: 'Optional — The name of the branch to compare against. Usually it is your master/main branch. Defaults to GitHub PR target branch'
+    description: 'Optional — The name of the branch to compare against. Usually it is your master/main branch. Defaults to "master"'
     required: false
 
 runs:
