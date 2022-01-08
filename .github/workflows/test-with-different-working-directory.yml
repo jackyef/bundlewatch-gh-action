@@ -1,0 +1,20 @@
+name: "bundlewatch GH Action"
+
+on:
+  pull_request:
+    types: [synchronize, opened]
+
+jobs:
+  test-with-different-base:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # run our own action on PR as a way to test this library
+      - uses: ./
+        working-directory: ./lib
+        with:
+          build-script: npm run test-build
+          bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
+          branch-base: testing-branch-do-not-delete
+          bundlewatch-config: .bundlewatch.config.js
